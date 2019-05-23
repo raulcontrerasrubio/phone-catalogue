@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
-export default class PhoneList extends Component {
+class PhoneList extends Component {
   render() {
     return (
       <div>
@@ -9,3 +10,21 @@ export default class PhoneList extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    state
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    // Reducers
+  };
+  
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PhoneList)
