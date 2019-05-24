@@ -1,14 +1,12 @@
 import axios from 'axios';
+const BASE_URL = 'http://localhost:5000';
 
 export default class phoneService{
-  constructor(){
-    this.service = axios.create({
-      baseURL: 'http://localhost:5000'
-    });
-  }
-
-  getPhones(){
-    return this.service.get('/phones')
-      .then(data => data.data);
+  static getPhones(){
+    return axios.get(`${BASE_URL}/phones`)
+      .then(data => {
+        return data.data.data;
+      })
+      .catch(err => console.log(err));
   }
 }

@@ -1,15 +1,15 @@
 import {createStore} from 'redux';
 
 const initialState = {
-  displayPhones: []
+  phones: []
 };
 
-const store = createStore((state = initialState, action) => {
+const store = createStore((state = initialState, action = {}) => {
   switch(action.type){
     case 'GET_PHONES':
       return {
         ...state,
-        displayPhones: action.payload
+        phones: action.payload
       };
     default:
       return state;

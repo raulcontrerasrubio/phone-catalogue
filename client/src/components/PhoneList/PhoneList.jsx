@@ -20,35 +20,38 @@ class PhoneList extends Component {
     return (
       <div>
         {
-          JSON.stringify(this.props)
+          this.props.state.phones.length === 0 ?
+          <div>Loading...</div> :
+          <ul>
+            {
+              this.props.state.phones.map(phone => {
+                return <li key={phone.id}>{phone.name}</li>
+              })
+            }
+          </ul>
         }
       </div>
     )
   }
 }
 
-function getPhones(){
-  new PhoneService().getPhones()
-    .then(phones => {
-      return {
-        displayPhones: phones
-      }
-    })
-    .catch(error => {
-      console.log(error);
-      // return state;
-    });
-}
-
 function mapStateToProps(state) {
   return {
-    displayPhones: state
+    state
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    getPhones: () => dispatch({type:'GET_PHONES', payload: getPhones()}),
+    getPhones: () => {
+      PhoneService.getPhones()
+        .then(phones => {
+          dispatch({type:'GET_PHONES', payload: phones})
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
   };
   
 }
