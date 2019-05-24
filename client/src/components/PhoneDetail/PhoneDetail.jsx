@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
 class PhoneDetail extends Component {
+  constructor(props){
+    super(props);
+  }
+
   render() {
     return (
       <div>
-        Phone Specific Component
+        {
+          JSON.stringify(this.props.state)
+        }
       </div>
     )
   }
