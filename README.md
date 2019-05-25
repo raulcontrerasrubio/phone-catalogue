@@ -16,3 +16,25 @@ Your task is to write a very simple product catalogue app.
 ## Bonus points
 1. Dockerize the app.
 2. Write realistic unit/end-to-end tests.
+
+
+# Installation
+1. Clone the repository `git clone https://github.com/raulcontrerasrubio/phone-catalogue.git`
+2. Create a .env file on server directory: 
+```
+PORT=5000
+```
+## Run app on your local machine
+1. Go to server directory and install the dependencies: `npm i`
+2. Run the server: `npm run dev` if you are on Ubuntu/MacOS or `npm run dev-windows` if you are on Windows
+3. The server is listening on `http://localhost:5000`
+4. On another terminal go to client directory and install the dependencies: `npm i`
+5. Run the client: `npm start`.
+6. The client is listening on port 3000: `http://localhost:3000`
+
+## Run app on Docker
+1. Go to the server directory and create a docker image: `sudo docker build -t phone-sev:dev .`
+2. Run the server using: `sudo docker run -v ${PWD}:/server -v /server/node_modules -p 5000:5000 --rm phone-sev:dev`
+3. On another terminal go to the client directory and create a docker image: `sudo docker build -t telephone:dev .`
+4. Run the app using: `sudo docker run -v ${PWD}:/client -v /client/node_modules -p 3000:3000 --rm telephone:dev`
+5. The app is on port 5000: `http://localhost:5000`

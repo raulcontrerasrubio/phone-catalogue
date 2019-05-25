@@ -28,7 +28,7 @@ class PhoneList extends Component {
             <h1>Phone Catalogue</h1>
             <Loader/>
           </React.Fragment> :
-          this.props.state.phones.length !== 0 ?
+          this.props.state.phones && this.props.state.phones.length !== 0 ?
           <React.Fragment>
             <h1>Phone Catalogue</h1>
             <div className="PhoneList__card">
