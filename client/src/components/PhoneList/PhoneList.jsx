@@ -53,7 +53,7 @@ function mapDispatchToProps(dispatch) {
     getPhones: () => {
       PhoneService.getPhones()
         .then(phones => {
-          dispatch({type:'GET_PHONES', payload: phones})
+          dispatch({type:'GET_PHONES', phones})
         })
         .catch(error => {
           console.log(error);

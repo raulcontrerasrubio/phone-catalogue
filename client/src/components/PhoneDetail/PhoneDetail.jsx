@@ -21,18 +21,18 @@ class PhoneDetail extends Component {
     return (
       <React.Fragment>
         <div className="Phone">
-          <h1 className="Phone__name">{this.props.state.phones.name}</h1>
-          <img className="Phone__image" src={`/images/${this.props.state.phones.imageFileName}`}/>
-          <div className="Phone__manufacturer">{this.props.state.phones.manufacturer}</div>
-          <div className="Phone__description">{this.props.state.phones.description}</div>
-          <div className="Phone_  _price">{this.props.state.phones.price}€</div>
+          <h1 className="Phone__name">{this.props.state.phoneDetail.name}</h1>
+          <img className="Phone__image" src={`/images/${this.props.state.phoneDetail.imageFileName}`}/>
+          <div className="Phone__manufacturer">{this.props.state.phoneDetail.manufacturer}</div>
+          <div className="Phone__description">{this.props.state.phoneDetail.description}</div>
+          <div className="Phone_  _price">{this.props.state.phoneDetail.price}€</div>
           <div className="Phone__info">
             <div className="Phone__color">Color:
-              <div className="Phone__color-box" style={{backgroundColor: this.props.state.phones.color}}></div>
+              <div className="Phone__color-box" style={{backgroundColor: this.props.state.phoneDetail.color}}></div>
             </div>
-            <div className="Phone__screen"><span className="Phone__screen-label">Screen:</span> {this.props.state.phones.screen}</div>
-            <div className="Phone__processor"><span className="Phone__processor-label">Processor:</span> {this.props.state.phones.processor}</div>
-            <div className="Phone__ram"><span className="Phone__ram-label">RAM:</span> {this.props.state.phones.ram}</div>
+            <div className="Phone__screen"><span className="Phone__screen-label">Screen:</span> {this.props.state.phoneDetail.screen}</div>
+            <div className="Phone__processor"><span className="Phone__processor-label">Processor:</span> {this.props.state.phoneDetail.processor}</div>
+            <div className="Phone__ram"><span className="Phone__ram-label">RAM:</span> {this.props.state.phoneDetail.ram}</div>
           </div>
         </div>
         <Link className="btn" to="/">Go back</Link>
@@ -52,7 +52,7 @@ function mapDispatchToProps(dispatch) {
     getPhoneById: (id) => {
       PhoneService.getPhones()
         .then(phones => {
-          dispatch({type:'GET_PHONES', payload: phones.filter(phone => phone.id === +id)[0]})
+          dispatch({type:'GET_PHONE_DETAIL', phoneDetail: phones.filter(phone => phone.id === +id)[0]})
         })
         .catch(error => {
           console.log(error);
