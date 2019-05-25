@@ -1,10 +1,11 @@
 .btn{
   display: block;
-  padding: 1rem .5rem;
   color: #FAFAFA;
   background-color: hsl(210, 35%, 60%);
   border: 1px solid #3333;
   border-radius: 1.5rem;
   text-decoration: none;
   text-align: center;
+  max-width: 30rem;
+  width: 100%;
 }

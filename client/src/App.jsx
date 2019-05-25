@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.scss';
 import {Switch, Route, Redirect} from 'react-router-dom';
-import PhoneList from './components/PhoneList/PhoneList';
-import PhoneDetail from './components/PhoneDetail/PhoneDetail';
+import PhoneList from './components/Phone/PhoneList';
+import PhoneDetail from './components/Phone/PhoneDetail';
 import {connect} from 'react-redux';
 
 function App() {

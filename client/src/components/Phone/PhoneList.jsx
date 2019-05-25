@@ -4,6 +4,7 @@ import store from '../../store';
 import PhoneService from '../../services/phone.service';
 import PhoneCard from '../Phone/PhoneCard';
 import './PhoneList.scss';
+import Loader from '../Loader/Loader';
 
 class PhoneList extends Component {
 
@@ -22,8 +23,12 @@ class PhoneList extends Component {
     return (
       <div className="PhoneList">
         {
-          this.props.state.phones.length === 0 ?
-          <div>Loading...</div> :
+          this.props.state.isFetching ?
+          <React.Fragment>
+            <h1>Phone Catalogue</h1>
+            <Loader/>
+          </React.Fragment> :
+          this.props.state.phones.length !== 0 ?
           <React.Fragment>
             <h1>Phone Catalogue</h1>
             <div className="PhoneList__card">
@@ -35,6 +40,10 @@ class PhoneList extends Component {
                 })
               }
             </div>
+          </React.Fragment> :
+          <React.Fragment>
+            <h1>Phone Catalogue</h1>
+            <p>There are no phones!</p>
           </React.Fragment>
         }
       </div>
@@ -51,6 +60,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getPhones: () => {
+      dispatch({type:'MAKE_REQUEST'});
       PhoneService.getPhones()
         .then(phones => {
           dispatch({type:'GET_PHONES', phones})

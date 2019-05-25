@@ -1,6 +1,8 @@
 .Phone{
   display: flex;
   flex-direction: column;
+  max-width: 40rem;
+  margin: 0 auto;
   
   &__name{
     text-align: center;
@@ -48,6 +50,7 @@
       width: 1.25rem;
       margin-left: .5rem;
       border-radius: 1.5rem;
+      border: 1px solid #3339;
     }
   }
 
@@ -76,5 +79,10 @@
       color: #333;
       font-weight: bold;
     }
+  }
+
+  &__btn{
+    margin: 0 auto;
+    padding: 1rem .5rem;
   }
 }
