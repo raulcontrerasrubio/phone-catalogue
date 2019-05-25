@@ -1,0 +1,9 @@
+.PhoneList{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__card{
+    margin: .5rem 0;
+  }
+}

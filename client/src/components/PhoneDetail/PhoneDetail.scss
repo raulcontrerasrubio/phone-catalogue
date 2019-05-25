@@ -1,0 +1,80 @@
+.Phone{
+  display: flex;
+  flex-direction: column;
+  
+  &__name{
+    text-align: center;
+  }
+
+  &__image{
+    width: 100%;
+  }
+
+  &__manufacturer{
+    text-align: center;
+    font-size: 1.8rem;
+    color: #999;
+    margin-bottom: .5rem;
+  }
+
+  &__description{
+    text-align: justify;
+    margin-bottom: .5rem;
+  }
+
+  &__info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #eee;
+    border-radius: 1rem;
+    background-color: #FAFAFA;
+    margin-bottom: 2rem;
+    padding: .5rem;
+  }
+
+  &__color{
+
+    display: flex;
+    align-items: center;
+    padding: .5rem 1rem;
+    color: #333;
+    font-weight: bold;
+
+    &-box{
+      display: inline-block;
+      height: 1.25rem;
+      width: 1.25rem;
+      margin-left: .5rem;
+      border-radius: 1.5rem;
+    }
+  }
+
+  &__screen{
+    padding: .5rem 1rem;
+
+    &-label{
+      color: #333;
+      font-weight: bold;
+    }
+  }
+
+  &__processor{
+    padding: .5rem 1rem;
+
+    &-label{
+      color: #333;
+      font-weight: bold;
+    }
+  }
+
+  &__ram{
+    padding: .5rem 1rem;
+
+    &-label{
+      color: #333;
+      font-weight: bold;
+    }
+  }
+}

@@ -7,11 +7,13 @@ import {connect} from 'react-redux';
 
 function App() {
   return (
-    <Switch className="App">
-      <Route exact path="/" component={PhoneList}/>
-      <Route path="/:id" component={PhoneDetail}/>
-      <Route render={()=><Redirect to="/"/>}/>
-    </Switch>
+    <div className="App">
+      <Switch>
+        <Route exact path="/" component={PhoneList}/>
+        <Route path="/phone/:id" component={PhoneDetail}/>
+        <Route render={()=><Redirect to="/"/>}/>
+      </Switch>
+    </div>
   );
 }
 

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import store from '../../store';
 import PhoneService from '../../services/phone.service';
+import PhoneCard from '../Phone/PhoneCard';
+import './PhoneList.scss';
 
 class PhoneList extends Component {
 
@@ -18,17 +20,22 @@ class PhoneList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="PhoneList">
         {
           this.props.state.phones.length === 0 ?
           <div>Loading...</div> :
-          <ul>
-            {
-              this.props.state.phones.map(phone => {
-                return <li key={phone.id}>{phone.name}</li>
-              })
-            }
-          </ul>
+          <React.Fragment>
+            <h1>Phone Catalogue</h1>
+            <div className="PhoneList__card">
+              {
+                this.props.state.phones.map(phone => {
+                  return (
+                    <PhoneCard {...phone} key={phone.id}/>
+                  )
+                })
+              }
+            </div>
+          </React.Fragment>
         }
       </div>
     )
